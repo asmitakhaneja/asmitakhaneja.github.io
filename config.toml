@@ -57,7 +57,7 @@ pygmentsCodeFences=true
   instagram = "https://www.instagram.com/"
 
 [params.contact]
-  email = ""
+  email = "asmita.khaneja@gmail.com"
   text= "" # text of the contact link in the sidebar. If email params.contact.email is defined
 
 
@@ -68,7 +68,7 @@ pygmentsCodeFences=true
   name = "About"
   title = "About section"
   url = "/about/"
-  weight = -120
+  weight = -140
 
 [[menu.main]]
   identifier = "portfolio"
