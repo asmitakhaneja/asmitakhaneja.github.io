@@ -1,7 +1,7 @@
 ---
 title: ABOUT
-description: Hey, I'm Edna West
-images: ["/images/sample.jpg"]
+description: Hey, I am Asmita
+<!-- images: ["/images/sample.jpg"] -->
 ---
 
 
