@@ -79,9 +79,9 @@ pygmentsCodeFences=true
 
 [[menu.main]]
   identifier = "blog"
-  name = "Post"
+  name = "Blog"
   title = "Blog section"
-  url = "/post/"
+  url = "/blog/"
   weight = -100
 
 [sitemap]
