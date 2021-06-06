@@ -1,7 +1,6 @@
 ---
 title: ABOUT
 description: Hey, I am Asmita
-images: ["/images/sample.jpg"]
 ---
 
 
