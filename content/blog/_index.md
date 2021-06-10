@@ -1,10 +1,10 @@
 ---
 title: BLOG
 description: My Blogs
-image: image/pbt.png
+images: ["/images/pbt.png"]
 ---
 
-I am working on exploring out my inner writer It's taking a lil' long.
+I am working on exploring out my inner writer but It's taking a lil' long!!
 
 
 <!-- 
