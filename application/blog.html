@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Akki</title>
+  <meta name="description" content="Practical notes on LLM fine-tuning, Agentic AI, and production GenAI systems by Akki." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Blog-specific styles ── */
+    .blog-hero {
+      padding: 8rem 0 4rem;
+      background: linear-gradient(160deg, var(--bg) 60%, var(--accent-light) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-hero h1 { margin-bottom: .5rem; }
+    .blog-hero p { font-size: 1rem; }
+
+    /* Filters */
+    .blog-filters {
+      display: flex; gap: .6rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+      padding: .35rem .9rem; border-radius: 999px;
+      border: 1.5px solid var(--border); color: var(--text-muted);
+      transition: all var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--accent); color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* Post page */
+    .post-wrapper { max-width: 720px; margin: 0 auto; padding: 6rem 1.5rem 4rem; }
+    .post-back {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .85rem; font-weight: 600; color: var(--text-muted);
+      margin-bottom: 2.5rem; transition: color var(--transition);
+    }
+    .post-back:hover { color: var(--accent); }
+    .post-tag {
+      font-size: .75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--accent);
+      margin-bottom: .75rem; display: block;
+    }
+    .post-title { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: .75rem; }
+    .post-meta { font-size: .8rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+    .post-divider {
+      height: 1px; background: var(--border);
+      margin: 2rem 0;
+    }
+    .post-body { font-size: 1rem; line-height: 1.8; }
+    .post-body h2 {
+      font-size: 1.3rem; margin: 2rem 0 .75rem;
+      color: var(--text);
+    }
+    .post-body p { color: var(--text-muted); margin-bottom: 1rem; }
+    .post-body ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    .post-body ul li { color: var(--text-muted); margin-bottom: .4rem; list-style: disc; }
+    .post-body strong { color: var(--text); }
+    .post-body code {
+      font-family: var(--mono); font-size: .85em;
+      background: var(--tag-bg); padding: .15em .45em;
+      border-radius: 4px; color: var(--accent);
+    }
+    .post-nav { display: flex; gap: 1rem; margin-top: 3rem; flex-wrap: wrap; }
+    .post-figure { margin: 2rem 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .post-figure img { width: 100%; height: auto; display: block; }
+    .post-figure figcaption { padding: .6rem 1rem; font-size: .8rem; color: var(--text-muted); background: var(--bg-soft); border-top: 1px solid var(--border); text-align: center; font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Akki<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="nav-cta">Hire Me</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Blog listing ── -->
+  <div id="blogListing">
+    <div class="blog-hero">
+      <div class="container">
+        <p class="section-label">Blog</p>
+        <h1>Notes from the Field</h1>
+        <p>Practical deep-dives on LLM fine-tuning, agentic AI, and production GenAI.</p>
+      </div>
+    </div>
+
+    <section style="padding-top:3rem">
+      <div class="container">
+        <div class="blog-filters" id="blogFilters">
+          <button class="filter-btn active" data-filter="all">All</button>
+        </div>
+        <div class="blog-grid" id="blogListGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── Single post view ── -->
+  <div id="postView" style="display:none">
+    <div class="post-wrapper">
+      <a href="blog.html" class="post-back" id="postBack">← Back to Blog</a>
+      <span class="post-tag" id="postTag"></span>
+      <h1 class="post-title" id="postTitle"></h1>
+      <p class="post-meta" id="postMeta"></p>
+      <div class="post-divider"></div>
+      <div class="post-body" id="postBody"></div>
+      <div class="post-divider"></div>
+      <div class="post-nav">
+        <a href="blog.html" class="btn-outline">← All Posts</a>
+        <a href="index.html#contact" class="btn-primary">Get in Touch →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026 Akki. Architecting AI Solutions.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="https://www.linkedin.com/in/as-k/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/asmitakhaneja" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Chatbot ── -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Open project chatbot" title="Ask about my projects">🤖</button>
+  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Project chatbot">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">🤖</div>
+        <div><h4>Akki's Project Bot</h4><p>Ask me anything about her work</p></div>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-suggestions" id="chatSuggestions" style="display:none"></div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Ask about projects, skills…" autocomplete="off" />
+      <button class="chat-send" id="chatSend" aria-label="Send">➤</button>
+    </div>
+  </div>
+
+  <script src="data/posts.js"></script>
+  <script>
+  // ── Blog page logic ────────────────────────────────────────
+  const params = new URLSearchParams(location.search);
+  const postId = params.get('id');
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function renderMarkdown(md) {
+    return md
+      .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      // Images with captions: ![caption](url)
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, caption, src) =>
+        `<figure class="post-figure">
+          <img src="${src}" alt="${caption}" loading="lazy" />
+          ${caption ? `<figcaption>${caption}</figcaption>` : ''}
+        </figure>`)
+      .replace(/^- (.+)$/gm, '<li>$1</li>')
+      .replace(/(<li>.*<\/li>)/gs, (m) => `<ul>${m}</ul>`)
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/^(?!<[hup])(.+)$/gm, '<p>$1</p>')
+      .replace(/<p><\/p>/g, '')
+      .replace(/<p>(<[hulf])/g, '$1')
+      .replace(/(<\/[hulf][^>]*>)<\/p>/g, '$1');
+  }
+
+  (function () {
+    const posts = (typeof BLOG_POSTS !== 'undefined') ? BLOG_POSTS : [];
+
+    if (postId) {
+        // ── Single post ──
+        const post = posts.find(p => p.id === postId);
+        if (!post) { location.href = 'blog.html'; return; }
+
+        document.title = `${post.title} — Akki`;
+        document.getElementById('blogListing').style.display = 'none';
+        document.getElementById('postView').style.display = 'block';
+        document.getElementById('postTag').textContent = post.tag;
+        document.getElementById('postTitle').textContent = post.title;
+        document.getElementById('postMeta').textContent = formatDate(post.date);
+        document.getElementById('postBody').innerHTML = renderMarkdown(post.content);
+
+      } else {
+        // ── Listing ──
+        const grid = document.getElementById('blogListGrid');
+        const filtersEl = document.getElementById('blogFilters');
+        const tags = [...new Set(posts.map(p => p.tag))];
+
+        tags.forEach(tag => {
+          const btn = document.createElement('button');
+          btn.className = 'filter-btn';
+          btn.dataset.filter = tag;
+          btn.textContent = tag;
+          filtersEl.appendChild(btn);
+        });
+
+        function renderPosts(filter) {
+          const filtered = filter === 'all' ? posts : posts.filter(p => p.tag === filter);
+          grid.innerHTML = filtered.map(post => `
+            <article class="blog-card fade-in">
+              <div class="blog-card-header">
+                <span class="blog-tag">${post.tag}</span>
+                <span class="blog-date">${formatDate(post.date)}</span>
+              </div>
+              <div class="blog-card-body">
+                <h3 class="blog-title">${post.title}</h3>
+                <p class="blog-excerpt">${post.excerpt}</p>
+                <a href="blog.html?id=${post.id}" class="blog-read-more">Read post <span>→</span></a>
+              </div>
+            </article>`).join('');
+          // Animate
+          requestAnimationFrame(() => {
+            grid.querySelectorAll('.fade-in').forEach(el => {
+              setTimeout(() => el.classList.add('visible'), 50);
+            });
+          });
+        }
+
+        renderPosts('all');
+
+        filtersEl.addEventListener('click', e => {
+          const btn = e.target.closest('.filter-btn');
+          if (!btn) return;
+          filtersEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderPosts(btn.dataset.filter);
+        });
+      }
+  })();
+  </script>
+
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
