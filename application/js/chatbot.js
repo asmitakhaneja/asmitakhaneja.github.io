@@ -1,6 +1,6 @@
 /* ============================================================
-   Akki — Project Chatbot
-   Rule-based Q&A about Akki's projects & skills.
+   Asmita — Project Chatbot
+   Rule-based Q&A about Asmita's projects & skills.
    To connect to Claude API, set CLAUDE_API_ENDPOINT below
    and uncomment the fetchClaudeReply function.
    ============================================================ */
@@ -13,15 +13,15 @@
 const KB = {
   greet: {
     triggers: ['hi','hello','hey','sup','greetings'],
-    reply: "Hey! 👋 I'm Akki's project bot. Ask me about her projects, skills, or how to get in touch. Here are some things you can ask:"
+    reply: "Hey! 👋 I'm Asmita's project bot. Ask me about her projects, skills, or how to get in touch. Here are some things you can ask:"
   },
   projects: {
     triggers: ['project','projects','work','built','created','portfolio'],
-    reply: "Akki has two flagship projects:\n\n🔹 **E2E LLM Fine-Tuning Pipeline** — A full system for fine-tuning image LLMs (Qwen, Flux) with automated data prep, MLflow experiment tracking, and vLLM deployment.\n\n🔹 **Automotive Ad-Campaign** — An AI-driven pipeline for brand-consistent car visual generation using diffusion models (Flux, LoRA), ComfyUI workflows, and 8K upscaling.\n\nWant details on either?"
+    reply: "Asmita has two flagship projects:\n\n🔹 **E2E LLM Fine-Tuning Pipeline** — A full system for fine-tuning image LLMs (Qwen, Flux) with automated data prep, MLflow experiment tracking, and vLLM deployment.\n\n🔹 **Automotive Ad-Campaign** — An AI-driven pipeline for brand-consistent car visual generation using diffusion models (Flux, LoRA), ComfyUI workflows, and 8K upscaling.\n\nWant details on either?"
   },
   llm: {
     triggers: ['llm','fine-tun','fine tun','finetuning','qwen','flux','vllm','lora','peft','qlora'],
-    reply: "For LLM fine-tuning, Akki works with **PEFT (LoRA / QLoRA)** on models like **Qwen** and **Flux**.\n\nHer pipeline covers:\n• Automated metadata & diversity analysis\n• MLflow for hyperparameter tracking\n• Checkpoint validation against a Golden Dataset\n• Deployment via **vLLM**\n\nThis is applied to both text and image LLMs!"
+    reply: "For LLM fine-tuning, Asmita works with **PEFT (LoRA / QLoRA)** on models like **Qwen** and **Flux**.\n\nHer pipeline covers:\n• Automated metadata & diversity analysis\n• MLflow for hyperparameter tracking\n• Checkpoint validation against a Golden Dataset\n• Deployment via **vLLM**\n\nThis is applied to both text and image LLMs!"
   },
   automotive: {
     triggers: ['automotive','car','ad','campaign','comfyui','firefly','upscal','8k','brand'],
@@ -29,26 +29,26 @@ const KB = {
   },
   skills: {
     triggers: ['skill','tech','stack','technology','tool','know','expertise','speciali'],
-    reply: "Akki's core expertise spans:\n\n🤖 **GenAI** — LLM/SLM fine-tuning, Multimodal LLMs, Image LLMs, PEFT, LoRA, RAG, Agentic AI, Prompt Engineering\n\n🛠️ **MLOps / LLMOps** — MLflow, vLLM, ONNX, Prometheus, GCP, AWS\n\n💻 **Frameworks** — PyTorch, TensorFlow, LangChain, LangGraph, FastAPI, Flask\n\n📊 **Data** — Python, SQL (MS-SQL, PostgreSQL), MongoDB, Elasticsearch\n\n☁️ **Cloud & DevOps** — Azure DevOps, GCP, AWS, Shell Scripting, MSAL/SSO"
+    reply: "Asmita's core expertise spans:\n\n🤖 **GenAI** — LLM/SLM fine-tuning, Multimodal LLMs, Image LLMs, PEFT, LoRA, RAG, Agentic AI, Prompt Engineering\n\n🛠️ **MLOps / LLMOps** — MLflow, vLLM, ONNX, Prometheus, GCP, AWS\n\n💻 **Frameworks** — PyTorch, TensorFlow, LangChain, LangGraph, FastAPI, Flask\n\n📊 **Data** — Python, SQL (MS-SQL, PostgreSQL), MongoDB, Elasticsearch\n\n☁️ **Cloud & DevOps** — Azure DevOps, GCP, AWS, Shell Scripting, MSAL/SSO"
   },
   contact: {
     triggers: ['contact','reach','email','linkedin','connect','hire','talk'],
-    reply: "You can connect with Akki on:\n\n🔗 **LinkedIn**: linkedin.com/in/as-k\n📧 **Email**: asmita.khaneja@gmail.com\n\nShe's open to collaboration on GenAI, MLOps, and LLM fine-tuning projects."
+    reply: "You can connect with Asmita on:\n\n🔗 **LinkedIn**: linkedin.com/in/asmita-khaneja\n📧 **Email**: asmita.khaneja@gmail.com\n\nShe's open to collaboration on GenAI, MLOps, and LLM fine-tuning projects."
   },
   blog: {
     triggers: ['blog','post','article','write','writing','read'],
-    reply: "Akki writes about practical AI implementation:\n\n📝 *A Practical Guide to LLM Fine-Tuning with PEFT & LoRA*\n📝 *Building Agentic Pipelines with LangGraph — Lessons Learned*\n📝 *ComfyUI Workflows for Production Image Generation*\n\nCheck out the Blog section for the full posts!"
+    reply: "Asmita writes about practical AI implementation:\n\n📝 *A Practical Guide to LLM Fine-Tuning with PEFT & LoRA*\n📝 *Building Agentic Pipelines with LangGraph — Lessons Learned*\n📝 *ComfyUI Workflows for Production Image Generation*\n\nCheck out the Blog section for the full posts!"
   },
   about: {
     triggers: ['who','about','background','experience','bio'],
-    reply: "Akki is an **Experienced Data Science Associate Architect** with deep expertise in Finance, Retail Marketing, and Commerce domains.\n\nShe bridges cutting-edge AI research and real-world production systems — from LLM fine-tuning pipelines to agentic AI architectures. Her mission: turn the latest research into solutions with positive societal impact."
+    reply: "Asmita is an **Experienced Data Science Associate Architect** with deep expertise in Finance, Retail Marketing, and Commerce domains.\n\nShe bridges cutting-edge AI research and real-world production systems — from LLM fine-tuning pipelines to agentic AI architectures. Her mission: turn the latest research into solutions with positive societal impact."
   },
-  fallback: "Hmm, I'm not sure about that! Try asking about:\n• **Projects** (LLM pipeline, Automotive AI)\n• **Skills** (GenAI, MLOps, fine-tuning)\n• **Blog** posts\n• How to **Contact** Akki"
+  fallback: "Hmm, I'm not sure about that! Try asking about:\n• **Projects** (LLM pipeline, Automotive AI)\n• **Skills** (GenAI, MLOps, fine-tuning)\n• **Blog** posts\n• How to **Contact** Asmita"
 };
 
 const SUGGESTIONS = [
   "Tell me about projects",
-  "What are Akki's skills?",
+  "What are Asmita's skills?",
   "How to contact?",
   "Tell me about fine-tuning"
 ];
