@@ -1,5 +1,5 @@
 /* ============================================================
-   Akki — Main JS (navigation, scroll effects, contact form,
+   Asmita — Main JS (navigation, scroll effects, contact form,
    blog rendering, intersection observer animations)
    ============================================================ */
 
