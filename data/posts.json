@@ -1,5 +1,13 @@
 [
   {
+    "id": "scalable-llm-serving-system-design",
+    "title": "Designing a Scalable LLM Serving System: From Prototype to Production",
+    "date": "2026-04-01",
+    "tag": "System Design / LLMOps",
+    "excerpt": "How do you take an LLM from a notebook demo to a system handling thousands of requests per second? A deep-dive into the architecture decisions, trade-offs, and lessons learned from deploying LLMs at enterprise scale.",
+    "content": ""
+  },
+  {
     "id": "meta-tribe-v2-brain-encoder",
     "title": "TRIBE v2 by Meta: When AI Learns to Read the Brain at Scale",
     "date": "2026-03-27",
