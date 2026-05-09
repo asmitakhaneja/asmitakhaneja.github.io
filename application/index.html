@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -28,7 +28,6 @@
         <a href="#blog">Blog</a>
         <a href="#published">Published</a>
         <a href="#contact">Contact</a>
-        <!-- <a href="#contact" class="nav-cta">Hire Me</a> -->
       </div>
       <button class="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -43,40 +42,15 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <!-- <span class="hero-badge">Available for Collaboration</span> -->
-          <h1 class="hero-name">Hi, I'm <em>Asmita</em></h1>
-          <p class="hero-tagline">
-            <strong>Senior ML Engineer · GenAI / LLMOps · 10+ Years</strong><br>
-            LLM Fine-Tuning &nbsp;·&nbsp; PEFT &nbsp;·&nbsp; Agentic AI<br>
-            LLMOps &nbsp;·&nbsp; MLOps &nbsp;·&nbsp; Distributed ML Systems
-          </p>
-          <p class="hero-bio">
-            Senior ML Engineer with 10+ years building production AI systems across finance, retail, and commerce. I own full ML lifecycles — from data pipelines and model training to serving at scale — and specialize in LLM fine-tuning, agentic architectures, and LLMOps. I turn the latest research into measurable business impact.
-          </p>
-          <p class="hero-open-to">
-            <strong>Open to:</strong> Staff / Senior ML Engineer &nbsp;·&nbsp; Applied Scientist &nbsp;·&nbsp; MLOps / LLMOps roles
-          </p>
-          <div class="hero-actions">
-            <a href="#projects" class="btn-primary">View Projects ↓</a>
-            <a href="resume.pdf" class="btn-outline" download>Download CV ↓</a>
-            <a href="https://learnaiwithak.substack.com/" target="_blank" rel="noopener" class="btn-outline">Newsletter →</a>
-            <a href="https://www.linkedin.com/in/asmita-khaneja/" target="_blank" rel="noopener" class="btn-outline">LinkedIn →</a>
-          </div>
-          <div class="skills-row">
-            <span class="chip accent">Gen AI</span>
-            <span class="chip accent">LLM Fine-Tuning</span>
-            <span class="chip accent">Agentic AI</span>
-            <span class="chip">PEFT · LoRA · QLoRA</span>
-            <span class="chip">LLMOps</span>
-            <span class="chip">MLOps</span>
-            <span class="chip">Deep Learning</span>
-            <span class="chip">Computer Vision</span>
-            <span class="chip">NLP</span>
-            <span class="chip">Python</span>
-          </div>
+          <h1 class="hero-name" id="heroName"></h1>
+          <p class="hero-tagline" id="heroTagline"></p>
+          <p class="hero-bio" id="heroBio"></p>
+          <p class="hero-open-to" id="heroOpenTo"></p>
+          <div class="hero-actions" id="heroActions"></div>
+          <div class="skills-row" id="heroChips"></div>
         </div>
         <div class="hero-photo-wrap">
-          <img src="images/Asmita.jpg" alt="Asmita Khaneja" class="hero-avatar" />
+          <img id="heroAvatar" src="" alt="" class="hero-avatar" />
         </div>
       </div>
     </div>
@@ -91,98 +65,12 @@
         <div class="about-text fade-in">
           <p class="section-label">About Me</p>
           <h2 class="section-title">Research → Production</h2>
-          <p>
-            I'm a Data Science Associate Architect who lives at the intersection of AI research and real-world engineering. My work spans finance, retail marketing, and commerce — designing systems that are not just theoretically sound but production-ready and scalable.
-          </p>
-          <p>
-            What drives me is closing the gap between what's possible in research and what's actually deployed. I regularly dig into the latest papers, implement missing pieces myself, and architect solutions end-to-end — from raw data to model serving.
-          </p>
-          <p>
-            Whether it's designing an LLM fine-tuning pipeline, building agentic RAG systems, or orchestrating ComfyUI workflows for creative production, I bring a structured, first-principles approach to every problem.
-          </p>
-          <div class="stat-row">
-            <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Enterprise GenAI Projects</div></div>
-            <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years in AI Domain</div></div>
-            <div class="stat"><div class="stat-num">5+</div><div class="stat-label">LLMs in Production</div></div>
-            <div class="stat"><div class="stat-num">3</div><div class="stat-label">Industry Domains</div></div>
-          </div>
+          <div id="aboutText"></div>
+          <div class="stat-row" id="statRow"></div>
         </div>
-
         <div class="about-skills fade-in">
           <p class="section-label">Skills</p>
-
-          <div class="skills-group">
-            <div class="skills-group-label">ML Systems & Infrastructure</div>
-            <div class="skills-row">
-              <span class="chip">Distributed Training</span>
-              <span class="chip">Model Serving at Scale</span>
-              <span class="chip">Kubernetes</span>
-              <span class="chip">Docker</span>
-              <span class="chip">Ray</span>
-              <span class="chip">vLLM</span>
-              <span class="chip">MLflow</span>
-              <span class="chip">Prometheus</span>
-              <span class="chip">A/B Testing</span>
-              <span class="chip">Feature Stores</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <div class="skills-group-label">LLM Fine-Tuning & LLMOps</div>
-            <div class="skills-row">
-              <span class="chip">LoRA</span>
-              <span class="chip">PEFT</span>
-              <span class="chip">QLoRA</span>
-              <span class="chip">SLM Fine-Tuning</span>
-              <span class="chip">RAG / Agentic RAG</span>
-              <span class="chip">Prompt Engineering</span>
-              <span class="chip">LLMOps</span>
-              <span class="chip">MLOps</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <div class="skills-group-label">Cloud & Data Scale</div>
-            <div class="skills-row">
-              <span class="chip">GCP</span>
-              <span class="chip">AWS</span>
-              <span class="chip">Azure DevOps</span>
-              <span class="chip">Spark</span>
-              <span class="chip">BigQuery</span>
-              <span class="chip">Elasticsearch</span>
-              <span class="chip">MongoDB</span>
-              <span class="chip">PostgreSQL</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <div class="skills-group-label">Frameworks & Languages</div>
-            <div class="skills-row">
-              <span class="chip">Python</span>
-              <span class="chip">PyTorch</span>
-              <span class="chip">TensorFlow</span>
-              <span class="chip">LangChain</span>
-              <span class="chip">LangGraph</span>
-              <span class="chip">FastAPI</span>
-              <span class="chip">ONNX</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <div class="skills-group-label">Generative AI</div>
-            <div class="skills-row">
-              <span class="chip">Text LLM</span>
-              <span class="chip">Multimodal LLM</span>
-              <span class="chip">Image LLM</span>
-              <span class="chip">ComfyUI</span>
-              <span class="chip">Flux</span>
-              <span class="chip">Qwen</span>
-              <span class="chip">OpenAI</span>
-              <span class="chip">Claude (Anthropic)</span>
-              <span class="chip">Gemini</span>
-              <span class="chip">LLaMA</span>
-            </div>
-          </div>
+          <div id="skillsContainer"></div>
         </div>
       </div>
     </div>
@@ -196,185 +84,7 @@
       <p class="section-label fade-in">Projects</p>
       <h2 class="section-title fade-in">What I've Built</h2>
       <p class="section-sub fade-in">End-to-end AI systems bridging research and production — from data pipelines to model serving.</p>
-
-      <div class="projects-grid">
-
-        <!-- Project 1 -->
-        <div class="project-card fade-in">
-          <div class="project-num">01 / LLMOps · Fine-Tuning · vLLM</div>
-          <h3 class="project-title">E2E LLM Fine-Tuning Pipeline</h3>
-          <p class="project-desc">
-            A fully automated, production-grade pipeline for training and deploying high-fidelity diffusion-based image LLMs — from raw data to serving.
-          </p>
-          <div class="project-impact">
-            <span class="impact-stat">~40% cost reduction via QLoRA vs full fine-tune</span>
-            <span class="impact-stat">Auto checkpoint selection cutting manual review by 80%</span>
-            <span class="impact-stat">Reproducible across Qwen &amp; Flux model families</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Designed three-module architecture: <strong>Data Pre-processing</strong>, <strong>Fine-Tuning</strong>, and <strong>Validation</strong> for reliable, reproducible training.</li>
-            <li>Built automated metadata generation, diversity analysis dashboards, and high-fidelity image preparation workflows to ensure data quality.</li>
-            <li>Unified Fine-Tuning framework supporting <strong>Qwen</strong> and <strong>Flux</strong> models with MLflow for hyperparameter optimization and experiment tracking.</li>
-            <li>Custom Validation module with a scoring mechanism on a curated <strong>Golden Dataset</strong> to auto-select the best checkpoint for <strong>vLLM</strong> deployment.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="chip">Qwen</span>
-            <span class="chip">Flux</span>
-            <span class="chip">PEFT / LoRA</span>
-            <span class="chip">MLflow</span>
-            <span class="chip">vLLM</span>
-            <span class="chip">LLMOps</span>
-            <span class="chip">Python</span>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card fade-in">
-          <div class="project-num">02 / GenAI · ComfyUI · Diffusion</div>
-          <h3 class="project-title">Automotive AI Ad-Campaign</h3>
-          <p class="project-desc">
-            An AI-driven, end-to-end automotive advertisement generation pipeline delivering brand-consistent, high-fidelity car visuals at scale.
-          </p>
-          <div class="project-impact">
-            <span class="impact-stat">3× faster creative turnaround vs manual pipeline</span>
-            <span class="impact-stat">8K resolution outputs with zero manual upscaling</span>
-            <span class="impact-stat">0 brand-safety incidents via prompt guardrail system</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Led fine-tuning of diffusion-based image LLMs with <strong>PEFT & LoRA</strong> for brand-consistent, photorealistic car imagery.</li>
-            <li>Designed advanced <strong>ComfyUI</strong> workflows integrating Flux, Qwen, Firefly, and Nano Banana Pro to automate creative production.</li>
-            <li>Built robust <strong>prompt guardrails</strong> and anti–prompt-injection mechanisms ensuring safe, on-brand outputs across open-source models.</li>
-            <li>Delivered generative fill, scene expansion, and upscaling to <strong>8K resolution</strong> with OpenUSD asset pipelines.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="chip">ComfyUI</span>
-            <span class="chip">Flux</span>
-            <span class="chip">Firefly</span>
-            <span class="chip">LoRA</span>
-            <span class="chip">OpenUSD</span>
-            <span class="chip">8K Upscaling</span>
-            <span class="chip">Python</span>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card fade-in">
-          <div class="project-num">03 / Multimodal LLM · Agentic AI · AWS</div>
-          <h3 class="project-title">Marketing Video Analysis Platform</h3>
-          <p class="project-desc">
-            LLM-powered platform for automated marketing video analysis, content optimisation, and platform-specific format generation across YouTube, Instagram, and Facebook.
-          </p>
-          <div class="project-impact">
-            <span class="impact-stat">+25% ad engagement via tailored platform analysis</span>
-            <span class="impact-stat">-60% manual effort through automated transcript & frame analysis</span>
-            <span class="impact-stat">+30% user experience via automated Shorts, Reels & Stories generation</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Led team to deploy <strong>LLM-based video analysis</strong> pipeline using GPT-4o, Claude Sonnet/Haiku, and Gemini for multi-model content optimisation.</li>
-            <li>Implemented <strong>transcript generation and summarisation</strong> using Whisper (speech/audio) and frame analysis for full video coverage.</li>
-            <li>Designed automated process for generating platform-specific formats (Shorts, Reels, Stories, Feeds) by extracting highlights from longer videos.</li>
-            <li>Integrated a <strong>Video Q&A feature</strong> with timestamp context using WebSocket-based real-time streaming on AWS ECS + Fargate.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="chip">GPT-4o</span>
-            <span class="chip">Claude</span>
-            <span class="chip">Gemini</span>
-            <span class="chip">Whisper</span>
-            <span class="chip">AWS ECS</span>
-            <span class="chip">LangChain</span>
-            <span class="chip">Docker</span>
-            <span class="chip">FastAPI</span>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card fade-in">
-          <div class="project-num">04 / Agentic AI · LangGraph · Multi-Cloud</div>
-          <h3 class="project-title">E2E Commerce Campaign Generation Platform</h3>
-          <p class="project-desc">
-            Cloud-agnostic agentic platform for generating multi-lingual product descriptions and key visuals adhering to marketplace guidelines across Amazon, Lazada, and Shopee.
-          </p>
-          <div class="project-impact">
-            <span class="impact-stat">+80% efficiency for Graphic Designers</span>
-            <span class="impact-stat">+40% efficiency for Copywriters</span>
-            <span class="impact-stat">Multi-cloud: AWS + GCP CloudRun deployment</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Implemented <strong>multi-modal agentic tagging</strong> system for image and document analysis, ensuring brand consistency and searchability.</li>
-            <li>Engineered cloud-agnostic <strong>LangGraph Agents</strong> for generating multi-lingual PDP copy and key visuals aligned with marketplace guidelines.</li>
-            <li>Integrated <strong>LLM Fine-Tuning (PEFT, QLoRA)</strong> with Phi-3 and multi-model orchestration across GPT-4o, Claude, Gemini, and Midjourney.</li>
-            <li>Led product design and architecture, aligning stakeholders across business, engineering, and marketplace platform teams.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="chip">LangGraph</span>
-            <span class="chip">Agentic AI</span>
-            <span class="chip">QLoRA</span>
-            <span class="chip">AWS Bedrock</span>
-            <span class="chip">GCP CloudRun</span>
-            <span class="chip">Firefly</span>
-            <span class="chip">LLMOps</span>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="project-card fade-in">
-          <div class="project-num">05 / MLOps · AWS Serverless · CI/CD</div>
-          <h3 class="project-title">Marketing Trends & Personas Engine</h3>
-          <p class="project-desc">
-            End-to-end solution for generating dynamic marketing insights, trends, and personas from real-time data and industry reports on a fully serverless AWS architecture.
-          </p>
-          <div class="project-impact">
-            <span class="impact-stat">+75% deployment efficiency via CI/CD pipeline</span>
-            <span class="impact-stat">Cost-effective scaling via AWS Serverless architecture</span>
-            <span class="impact-stat">Real-time insights from live data + industry reports</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Built end-to-end solution for dynamic marketing insights and personas using real-time data with <strong>Claude, Gemini, LLaMA, and Falcon</strong>.</li>
-            <li>Deployed on <strong>AWS Serverless</strong> (Fargate, ECS, API WebSocket, OpenSearch, SageMaker) for cost-effective, high-availability scaling.</li>
-            <li>Led design and architecture of robust, scalable infrastructure supporting real-time insights generation at enterprise scale.</li>
-            <li>Implemented <strong>CI/CD pipeline</strong> for ML models via Azure DevOps, improving deployment efficiency by 75%.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="chip">AWS Fargate</span>
-            <span class="chip">SageMaker</span>
-            <span class="chip">OpenSearch</span>
-            <span class="chip">LLaMA</span>
-            <span class="chip">Claude</span>
-            <span class="chip">CI/CD</span>
-            <span class="chip">Python</span>
-          </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="project-card fade-in">
-          <div class="project-num">06 / MLOps · ONNX · TensorRT · Cost Optimisation</div>
-          <h3 class="project-title">ONNX Model Optimisation — $1M → $100K</h3>
-          <p class="project-desc">
-            Optimised custom deep learning models for CPU and GPU inference using ONNX and TensorRT, achieving a 10× reduction in cloud compute costs.
-          </p>
-          <div class="project-impact">
-            <span class="impact-stat">Cloud cost reduced from $1M to $100K (10× savings)</span>
-            <span class="impact-stat">First TPS module ONNX conversion in the open-source community</span>
-            <span class="impact-stat">Negligible accuracy drop with significant latency gains</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Implemented models in <strong>ONNX</strong> for faster CPU inference — first conversion of the TPS module to ONNX in the community.</li>
-            <li>Converted custom <strong>PyTorch</strong> models to <strong>TensorRT</strong> for GPU inference, achieving lightning-fast speeds on NVIDIA hardware.</li>
-            <li>Implemented automated <strong>CI/CD pipelines</strong> for serverless deployments on AWS Lambda and Google Cloud Functions for a PII masking solution.</li>
-            <li>Implemented automated ML training/tuning pipelines using <strong>Bayesian optimisation</strong> for neural network hyperparameter search.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="chip">ONNX</span>
-            <span class="chip">TensorRT</span>
-            <span class="chip">PyTorch</span>
-            <span class="chip">AWS Lambda</span>
-            <span class="chip">GCP Functions</span>
-            <span class="chip">MLOps</span>
-            <span class="chip">CI/CD</span>
-          </div>
-        </div>
-
-      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
 
@@ -385,111 +95,15 @@
     <div class="container">
       <p class="section-label fade-in">Recognition</p>
       <h2 class="section-title fade-in">Achievements & Certifications</h2>
-
       <div class="ach-grid">
-
-        <!-- Awards -->
         <div class="ach-col fade-in">
           <h3 class="ach-col-title">Awards & Recognition</h3>
-          <div class="award-list">
-            <div class="award-card award-highlight">
-              <div class="award-icon">🏆</div>
-              <div class="award-body">
-                <div class="award-name">Employee of the Quarter</div>
-                <div class="award-desc">Reduced client cloud costs from <strong>$1M → $100K</strong> via ONNX model optimisations</div>
-              </div>
-            </div>
-            <div class="award-card award-highlight">
-              <div class="award-icon">🧙</div>
-              <div class="award-body">
-                <div class="award-name">Wizard@Work Award</div>
-                <div class="award-desc">AI tool reducing campaign creation time from <strong>6 hours → 15 minutes</strong></div>
-              </div>
-            </div>
-            <div class="award-card award-highlight">
-              <div class="award-icon">🥈</div>
-              <div class="award-body">
-                <div class="award-name">1st Runner-Up — AIM GCP Hackathon</div>
-                <div class="award-desc">Fake News Detection System on Google Cloud Platform</div>
-              </div>
-            </div>
-            <div class="award-card">
-              <div class="award-icon">⭐</div>
-              <div class="award-body">
-                <div class="award-name">3× Insta Award & Laurel Award</div>
-                <div class="award-desc">Consistent excellence across multiple quarters</div>
-              </div>
-            </div>
-            <div class="award-card">
-              <div class="award-icon">🚀</div>
-              <div class="award-body">
-                <div class="award-name">Tenacious Techno Star</div>
-                <div class="award-desc">Cloud-native automation pipelines saving <strong>136 man-hours</strong></div>
-              </div>
-            </div>
-            <div class="award-card">
-              <div class="award-icon">🏅</div>
-              <div class="award-body">
-                <div class="award-name">Champion of the Quarter ×3</div>
-                <div class="award-desc">Streamlined 20 campaign adaptations from <strong>3–4 hours → 10 minutes</strong></div>
-              </div>
-            </div>
-            <div class="award-card">
-              <div class="award-icon">💎</div>
-              <div class="award-body">
-                <div class="award-name">Client Value Creation Award</div>
-                <div class="award-desc">Improving campaign adaptation efficiency for enterprise clients</div>
-              </div>
-            </div>
-            <div class="award-card">
-              <div class="award-icon">📋</div>
-              <div class="award-body">
-                <div class="award-name">Pride Card</div>
-                <div class="award-desc">Leading end-to-end SDLC as SME on complex delivery engagements</div>
-              </div>
-            </div>
-          </div>
+          <div class="award-list" id="awardList"></div>
         </div>
-
-        <!-- Certifications -->
         <div class="ach-col fade-in">
           <h3 class="ach-col-title">Certifications & Training</h3>
-          <div class="cert-list">
-            <div class="cert-card">
-              <div class="cert-issuer">Stanford University</div>
-              <div class="cert-name">Machine Learning Specialisation</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-issuer">Stanford University</div>
-              <div class="cert-name">Agentic AI Course</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-issuer">Udacity</div>
-              <div class="cert-name">LLMOps</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-issuer">Udacity</div>
-              <div class="cert-name">Fine-Tuning AI Agents with Reinforcement Learning</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-issuer">Amazon Web Services</div>
-              <div class="cert-name">AWS Cloud Practitioner</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-issuer">Google Cloud</div>
-              <div class="cert-name">GCP Cloud Digital Leader</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-issuer">Accenture / Industry</div>
-              <div class="cert-name">Responsible AI</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-issuer">CVIT</div>
-              <div class="cert-name">Computer Vision Summer School</div>
-            </div>
-          </div>
+          <div class="cert-list" id="certList"></div>
         </div>
-
       </div>
     </div>
   </section>
@@ -503,7 +117,6 @@
       <h2 class="section-title fade-in">Latest Posts</h2>
       <p class="section-sub fade-in">Practical notes on LLM fine-tuning, agentic AI, and production GenAI systems.</p>
       <div class="blog-grid" id="blogGrid">
-        <!-- Rendered by main.js from data/posts.json -->
         <noscript><p>Enable JavaScript to load blog posts.</p></noscript>
       </div>
       <div class="blog-cta fade-in">
@@ -520,20 +133,7 @@
       <p class="section-label fade-in">Published</p>
       <h2 class="section-title fade-in">External Writing</h2>
       <p class="section-sub fade-in">Articles and newsletters published beyond this site.</p>
-
-      <div class="published-grid">
-
-        <a href="https://www.linkedin.com/pulse/indias-ai-sovereignty-takes-leap-inside-sarvam-visions-asmita-khaneja-gpo3c/" target="_blank" rel="noopener" class="published-card fade-in">
-          <div class="published-platform">
-            <span class="platform-badge linkedin">LinkedIn Article</span>
-            <span class="published-date">Feb 10, 2026</span>
-          </div>
-          <h3 class="published-title">India's AI Sovereignty Takes a Leap: Inside Sarvam Vision's Mission to Unlock Knowledge in 22 Languages</h3>
-          <p class="published-excerpt">A 3B-parameter model beating Gemini and DeepSeek on document intelligence, with native support for all 22 official Indian languages.</p>
-          <span class="published-read-more">Read on LinkedIn →</span>
-        </a>
-
-      </div>
+      <div class="published-grid" id="publishedGrid"></div>
     </div>
   </section>
 
@@ -544,28 +144,9 @@
     <div class="container">
       <div class="contact-info fade-in">
         <p class="section-label">Contact</p>
-        <h2>Let's Build Something</h2>
-        <p>
-          Interested in collaborating on GenAI, LLM fine-tuning, or agentic AI systems? Or just want to talk research? Reach out — I'm always up for a good conversation.
-        </p>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/asmita-khaneja/" target="_blank" rel="noopener" class="contact-link">
-            <span class="contact-link-icon">🔗</span>
-            <span>Connect on LinkedIn</span>
-          </a>
-          <a href="mailto:asmita.khaneja@gmail.com" class="contact-link">
-            <span class="contact-link-icon">📧</span>
-            <span>Send email</span>
-          </a>
-          <a href="https://github.com/asmitakhaneja" target="_blank" rel="noopener" class="contact-link">
-            <span class="contact-link-icon">💻</span>
-            <span>View my GitHub</span>
-          </a>
-          <a href="https://learnaiwithak.substack.com/" target="_blank" rel="noopener" class="contact-link">
-            <span class="contact-link-icon">📩</span>
-            <span>Newsletter — Learn AI with AK</span>
-          </a>
-        </div>
+        <h2 id="contactHeading"></h2>
+        <p id="contactBody"></p>
+        <div class="contact-links" id="contactLinks"></div>
       </div>
     </div>
   </section>
@@ -576,7 +157,7 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <p class="footer-copy">© 2026 Asmita. Architecting AI Solutions.</p>
+        <p class="footer-copy">© 2026 Asmita Khaneja. Architecting AI Solutions.</p>
         <div class="footer-links">
           <a href="#home">Home</a>
           <a href="#projects">Projects</a>
@@ -592,7 +173,6 @@
        CHATBOT
   ════════════════════════════════ -->
   <button class="chat-toggle" id="chatToggle" aria-label="Open project chatbot" title="Ask about my projects">🤖</button>
-
   <div class="chat-window" id="chatWindow" role="dialog" aria-label="Project chatbot">
     <div class="chat-header">
       <div class="chat-header-info">
@@ -612,7 +192,13 @@
     </div>
   </div>
 
+  <!-- Data -->
+  <script src="data/profile.js"></script>
+  <script src="data/projects.js"></script>
+  <script src="data/achievements.js"></script>
+  <script src="data/published.js"></script>
   <script src="data/posts.js"></script>
+  <!-- App -->
   <script src="js/main.js"></script>
   <script src="js/chatbot.js"></script>
 </body>
